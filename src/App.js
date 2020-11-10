@@ -15,7 +15,7 @@ const App = () => {
         .then((res) => res.json())
         .then((res) => {
           setCharacterAPI({
-            characterList: [characterList, ...res.results],
+            characterList: [...characterList, ...res.results],
             nextURL: res.info.next,
           });
         });
