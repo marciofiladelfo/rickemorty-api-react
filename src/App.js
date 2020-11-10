@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CharacterList from "./components/character-list";
+
 import "./App.css";
 
 const App = () => {
@@ -16,7 +17,7 @@ const App = () => {
         .then((res) => {
           setCharacterAPI({
             characterList: [...characterList, ...res.results],
-            nextURL: res.info.next,
+            nextUrl: res.info.next,
           });
         });
     }
@@ -24,10 +25,8 @@ const App = () => {
   useEffect(getCharacters, [nextUrl, characterList]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <CharacterList list={characterList} />
-      </header>
+    <div className="App App-header">
+      <CharacterList list={characterList} />
     </div>
   );
 };

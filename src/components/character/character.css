@@ -1,3 +1,8 @@
-.Character {
+.character {
+  display: flex;
+  flex-direction: column;
   border: 1px solid yellow;
+  margin: 5px;
+  box-sizing: border-box;
+  width: min-content;
 }

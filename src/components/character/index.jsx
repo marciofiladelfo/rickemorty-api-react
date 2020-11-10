@@ -1,10 +1,15 @@
 import "./character.css";
 
-const Character = ({ name, image }) => {
+const Character = ({ id, name, image, species, status }) => {
   return (
-    <div className="Character">
+    <div className="character">
       <img src={image} alt={name} />
-      <div>{name}</div>
+      <div>
+        {id} - {name}
+      </div>
+      <div>
+        {species} - {status}
+      </div>
     </div>
   );
 };

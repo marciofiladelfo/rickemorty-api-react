@@ -1,0 +1,23 @@
+.inputs {
+  margin-bottom: 10px;
+}
+
+.inputs > input {
+  border: none;
+  background-color: rgb(189, 194, 194);
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.inputs > div {
+  font-size: 25px;
+  margin-bottom: 10px;
+  flex-basis: 0;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
