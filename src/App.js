@@ -3,16 +3,25 @@ import CharacterList from "./components/character-list";
 import "./App.css";
 
 const App = () => {
-  const [characterList, addCharacterList] = useState([]);
+  const [characterAPI, setCharacterAPI] = useState({
+    characterList: [],
+    nextUrl: "https://rickandmortyapi.com/api/character/",
+  });
 
-  useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character/")
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        addCharacterList(res.results);
-      });
-  }, []);
+  const { characterList, nextUrl } = characterAPI;
+  const getCharacters = () => {
+    if (nextUrl) {
+      fetch(nextUrl)
+        .then((res) => res.json())
+        .then((res) => {
+          setCharacterAPI({
+            characterList: [characterList, ...res.results],
+            nextURL: res.info.next,
+          });
+        });
+    }
+  };
+  useEffect(getCharacters, [nextUrl, characterList]);
 
   return (
     <div className="App">
